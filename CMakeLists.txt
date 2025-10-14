@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(Project1)
+project(Fast_Tries_and_Radix_Sort)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -18,6 +18,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 
 include_directories(src)
+target_include_directories(Fast_Tries_and_Radix_Sort PRIVATE "submodules/FunnelHashMap")
 
 add_executable(Main
         src/main.cpp # your main file
@@ -38,6 +39,6 @@ target_link_libraries(Tests PRIVATE Catch2::Catch2WithMain) #link catch to test.
 # the name here must match that of your testing executable (the one that has test.cpp)
 
 # comment everything below out if you are using CLion
-include(CTest)
-include(Catch)
-catch_discover_tests(Tests) # must be named the same as your test executable
+#include(CTest)
+#include(Catch)
+#catch_discover_tests(Tests) # must be named the same as your test executable
