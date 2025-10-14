@@ -1,0 +1,3 @@
+[submodule "submodules/FunnelHashMap"]
+	path = submodules/FunnelHashMap
+	url = https://github.com/uraniumcrystalsmaster/Funnel_Hash_Map_and_Funnel_Hash_AVL_Tree
