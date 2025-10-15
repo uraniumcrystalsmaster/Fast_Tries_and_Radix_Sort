@@ -1,8 +1,6 @@
 #include <iostream>
 
-using namespace std;
-
 int main(){
-	cout << "Hello AVL!\n";
+	std::cout << "Terminal works!\n";
 	return 0;
 }

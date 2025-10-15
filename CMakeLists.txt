@@ -18,7 +18,6 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 
 include_directories(src)
-target_include_directories(Fast_Tries_and_Radix_Sort PRIVATE "submodules/FunnelHashMap")
 
 add_executable(Main
         src/main.cpp # your main file
@@ -34,7 +33,8 @@ add_executable(Tests
         # example (can also separate with newlines):
         # src/AVL.h src/AVL.cpp
         )
-        
+target_include_directories(Main PRIVATE "submodules/FunnelHashMap/src")
+target_include_directories(Tests PRIVATE "submodules/FunnelHashMap/src")
 target_link_libraries(Tests PRIVATE Catch2::Catch2WithMain) #link catch to test.cpp file
 # the name here must match that of your testing executable (the one that has test.cpp)
 
