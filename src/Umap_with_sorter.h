@@ -6,15 +6,16 @@
 template<typename Key, typename Value>
 class Umap_with_sorter : public Ordered_Hash_Map<Key, Value>{
     public:
+        static constexpr Key NULL_KEY = std::numeric_limits<Key>::max();
         using Ordered_Hash_Map<Key, Value>::Ordered_Hash_Map;
         Umap_with_sorter() : Ordered_Hash_Map<Key, Value>() {}
 
         void sort_keys(){
             // Convert umap to vector
             std::vector<std::pair<const Key, Value>> sorted_pairs;
-            auto current_key = this->GetHead();
-            while (current_key != Key{} && sorted_pairs.size() < this->NodeCount()) {
-                auto it = this->Find(current_key);
+            auto current_key = this->getHead();
+            while (current_key != NULL_KEY && sorted_pairs.size() < this->nodeCount()) {
+                auto it = this->find(current_key);
                 sorted_pairs.push_back({it->first, it->second.value});
                 current_key = it->second.next;
             }
@@ -28,9 +29,9 @@ class Umap_with_sorter : public Ordered_Hash_Map<Key, Value>{
         void sort_values(){
             // Convert umap to vector
             std::vector<std::pair<const Key, Value>> sorted_pairs;
-            auto current_key = this->GetHead();
-            while (current_key != Key{} && sorted_pairs.size() < this->NodeCount()) {
-                auto it = this->Find(current_key);
+            auto current_key = this->getHead();
+            while (current_key != NULL_KEY && sorted_pairs.size() < this->nodeCount()) {
+                auto it = this->find(current_key);
                 sorted_pairs.push_back({it->first, it->second.value});
                 current_key = it->second.next;
             }
@@ -43,8 +44,8 @@ class Umap_with_sorter : public Ordered_Hash_Map<Key, Value>{
 
     void rebuild_sorted_links(const std::vector<std::pair<const Key, Value>>& sorted_pairs) {
             if (sorted_pairs.empty()) {
-                this->head = Key{};
-                this->tail = Key{};
+                this->head = NULL_KEY;
+                this->tail = NULL_KEY;
                 this->node_count = 0;
                 return;
             }
@@ -56,20 +57,20 @@ class Umap_with_sorter : public Ordered_Hash_Map<Key, Value>{
             for (size_t i = 0; i < N; ++i) {
                 Key current_key = sorted_pairs[i].first;
 
-                auto it = this->Find(current_key);
+                auto it = this->find(current_key);
 
                 if (i < N - 1) {
                     Key next_key = sorted_pairs[i + 1].first;
                     it->second.next = next_key;
                 } else {
-                    it->second.next = Key{};
+                    it->second.next = NULL_KEY;
                 }
 
                 if (i > 0) {
                     Key prev_key = sorted_pairs[i - 1].first;
                     it->second.prev = prev_key;
                 } else {
-                    it->second.prev = Key{};
+                    it->second.prev = NULL_KEY;
                 }
             }
         }
