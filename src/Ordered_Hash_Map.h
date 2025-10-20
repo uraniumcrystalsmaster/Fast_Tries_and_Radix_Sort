@@ -4,7 +4,6 @@
 
 #ifndef ORDERED_HASH_MAP_H
 #define ORDERED_HASH_MAP_H
-#pragma once
 #include <iostream>
 #include <vector>
 #include "Funnel_Hash_Map.h"
@@ -12,50 +11,51 @@
 template <typename Key, typename Value>
 class Ordered_Hash_Map{
   public:
+    static constexpr Key NULL_KEY = std::numeric_limits<Key>::max();
     struct NodeProps {
-      Key next = Key{};
-      Key prev = Key{};
+      Key next = NULL_KEY;
+      Key prev = NULL_KEY;
       Value value = Value{};
     };
   private:
     size_t node_count;
     Funnel_Hash_Map<Key, NodeProps> umap;
-    Key head = Key{};
-    Key tail = Key{};
+    Key head = NULL_KEY;
+    Key tail = NULL_KEY;
   public:
-    Ordered_Hash_Map(){
+    explicit Ordered_Hash_Map(size_t N) : umap(N) {
       this->node_count = 0;
-      this->head = Key{};
-      this->tail = Key{};
+      this->head = NULL_KEY;
+      this->tail = NULL_KEY;
     }
 
-    Ordered_Hash_Map(const Ordered_Hash_Map& other_ordered_hash_map){
+    Ordered_Hash_Map(const Ordered_Hash_Map& other_ordered_hash_map) : umap(other_ordered_hash_map.umap){
       this->node_count = 0;
-      Key nav_node = other_ordered_hash_map.GetHead();
-      for(size_t i = 0; i<other_ordered_hash_map.NodeCount(); i++){
-        this->AddTail(nav_node,other_ordered_hash_map.Find(nav_node)->second.value);
-        nav_node = other_ordered_hash_map.Find(nav_node)->second.next;
+      Key nav_node = other_ordered_hash_map.getHead();
+      for(size_t i = 0; i<other_ordered_hash_map.nodeCount(); i++){
+        this->addTail(nav_node,other_ordered_hash_map.find(nav_node)->second.value);
+        nav_node = other_ordered_hash_map.find(nav_node)->second.next;
       }
     }
 
     Ordered_Hash_Map& operator=(const Ordered_Hash_Map& other_ordered_hash_map){
       if(this != &other_ordered_hash_map){
-        Clear(); //convert linked list to default
-        Key nav_node = other_ordered_hash_map.GetHead();
-        for(size_t i = 0; i<other_ordered_hash_map.NodeCount(); i++){
-          this->AddTail(nav_node, other_ordered_hash_map.Find(nav_node)->second.value);
-          nav_node = other_ordered_hash_map.Find(nav_node)->second.next;
+        clear(); //convert linked list to default
+        Key nav_node = other_ordered_hash_map.getHead();
+        for(size_t i = 0; i<other_ordered_hash_map.nodeCount(); i++){
+          this->addTail(nav_node, other_ordered_hash_map.find(nav_node)->second.value);
+          nav_node = other_ordered_hash_map.find(nav_node)->second.next;
         }
       }
       return *this;
     }
 
     ~Ordered_Hash_Map(){
-      Clear();
+      clear();
     }
 
     //Behaviors
-    void PrintForward(){
+    void printForward(){
       Key nav_node = this->head;
       for(size_t i = 0; i<this->node_count; i++){
         std::cout << umap.find(nav_node)->second.value << std::endl;
@@ -63,7 +63,7 @@ class Ordered_Hash_Map{
       }
     }
 
-    void PrintReverse(){
+    void printReverse(){
       Key nav_node = this->tail;
       for(size_t i = 0; i<this->node_count; i++){
         std::cout << umap.find(nav_node)->second.value << std::endl;
@@ -72,23 +72,31 @@ class Ordered_Hash_Map{
     }
 
     //Accessors
-    size_t NodeCount(){
+    size_t nodeCount(){
       return this->node_count;
     }
 
-    size_t NodeCount() const{
+    size_t nodeCount() const{
       return this->node_count;
     }
 
-    auto Find(Key& key){
+    auto find(Key& key){
       return umap.find(key);
     }
 
-    auto Find(const Key& key) const{
+    auto find(const Key& key) const{
       return umap.find(key);
     }
 
-    std::vector<Key> FindValues(Value& value) {
+    bool empty(){
+        return nodeCount == 0;
+    }
+
+    bool contains(const Key& key) {
+        return umap.find(key) != umap.end();
+    }
+
+    std::vector<Key> findValues(Value& value) {
       std::vector<Key> keys;
       Key nav_node = this->head;
       for(size_t i = 0; i<this->node_count; i++){
@@ -100,7 +108,7 @@ class Ordered_Hash_Map{
       return keys;
     }
 
-    std::vector<Key> FindValues(const Value& value) const{
+    std::vector<Key> findValues(const Value& value) const{
       std::vector<Key> keys;
       Key nav_node = this->head;
       for(size_t i = 0; i<this->node_count; i++){
@@ -112,7 +120,7 @@ class Ordered_Hash_Map{
       return keys;
     }
 
-    Key GetNode(int index){
+    Key getNode(int index){
       if(index >= node_count){
         throw std::out_of_range("No node at index!");
       }
@@ -123,7 +131,7 @@ class Ordered_Hash_Map{
       return nav_node;
     }
 
-    Key GetNode(const int index) const{
+    Key getNode(const int index) const{
       if(index >= node_count){
         throw std::out_of_range("No node at index!");
       }
@@ -134,28 +142,31 @@ class Ordered_Hash_Map{
       return nav_node;
     }
 
-    Key GetHead(){
+    Key getHead(){
       return this->head;
     }
 
-    Key GetHead() const{
+    Key getHead() const{
       return this->head;
     }
 
-    Key GetTail(){
+    Key getTail(){
       return this->tail;
     }
 
-    Key GetTail() const{
+    Key getTail() const{
       return this->tail;
     }
 
     //Insertions
-    void AddHead(const Key& key, const Value& value){
+    void addHead(const Key& key, const Value& value){
+      if (key == NULL_KEY) {
+        throw std::invalid_argument("Key value is reserved and cannot be inserted.");
+      }
       if (umap.find(key) != umap.end()) {
         throw std::invalid_argument("Key already exists in the map.");
       }
-      umap.emplace(key, NodeProps{Key{}, Key{}, value});
+      umap.emplace(key, NodeProps{NULL_KEY, NULL_KEY, value});
       Key new_head = key;
       if(node_count == 0){
         this->head = new_head;
@@ -173,11 +184,14 @@ class Ordered_Hash_Map{
       node_count++;
     }
 
-    void AddTail(const Key& key, const Value& value){
+    void addTail(const Key& key, const Value& value){
+      if (key == NULL_KEY) {
+        throw std::invalid_argument("Key value is reserved and cannot be inserted.");
+      }
       if (umap.find(key) != umap.end()) {
         throw std::invalid_argument("Key already exists in the map.");
       }
-      umap.emplace(key, NodeProps{Key{}, Key{}, value});
+      umap.emplace(key, NodeProps{NULL_KEY, NULL_KEY, value});
 
       Key new_tail = key;
       if(node_count == 0){
@@ -196,7 +210,7 @@ class Ordered_Hash_Map{
       node_count++;
     }
 
-    void InsertBefore(const Key& key, const Value& value, const Key& some_node){
+    void insertBefore(const Key& key, const Value& value, const Key& some_node){
       /*
       Let node2insert = A
       Let some_node = B
@@ -208,16 +222,18 @@ class Ordered_Hash_Map{
       B<  = A
       */
 
+      if (key == NULL_KEY) {
+        throw std::invalid_argument("Key value is reserved and cannot be inserted.");
+      }
       if (umap.find(key) != umap.end()) {
         throw std::invalid_argument("Key already exists in the map.");
       }
-
       if (umap.find(some_node) == umap.end()) {
-        throw std::out_of_range("Node to insert before does not exist.");
+        throw std::out_of_range("Node to insert after does not exist.");
       }
 
       if(some_node == this->head){
-        AddHead(key,value);
+        addHead(key,value);
         return;
       }
       // Create node and update output links
@@ -232,7 +248,7 @@ class Ordered_Hash_Map{
       node_count++;
     }
 
-    void InsertAfter(const Key& key, const Value& value, const Key& some_node){
+    void insertAfter(const Key& key, const Value& value, const Key& some_node){
       /*
       same as insert after but swap next and prev
       Let node2insert = A
@@ -245,16 +261,18 @@ class Ordered_Hash_Map{
       B>  = A
       */
 
+      if (key == NULL_KEY) {
+        throw std::invalid_argument("Key value is reserved and cannot be inserted.");
+      }
       if (umap.find(key) != umap.end()) {
         throw std::invalid_argument("Key already exists in the map.");
       }
-
       if (umap.find(some_node) == umap.end()) {
         throw std::out_of_range("Node to insert before does not exist.");
       }
 
       if(some_node == this->tail){
-        AddTail(key,value);
+        addTail(key,value);
         return;
       }
       // Create node and update output links
@@ -269,7 +287,10 @@ class Ordered_Hash_Map{
       node_count++;
     }
 
-    void InsertAt(const Key& key, const Value& value, const int index){
+    void insertAt(const Key& key, const Value& value, const int index){
+      if (key == NULL_KEY) {
+        throw std::invalid_argument("Key value is reserved and cannot be inserted.");
+      }
       if (umap.find(key) != umap.end()) {
         throw std::invalid_argument("Key already exists in the map.");
       }
@@ -278,11 +299,11 @@ class Ordered_Hash_Map{
         throw std::out_of_range("No node at index!");
       }
       else if(index == 0){
-        AddHead(key,value);
+        addHead(key,value);
         return;
       }
       else if(index == node_count){
-        AddTail(key,value);
+        addTail(key,value);
         return;
       }
 
@@ -290,17 +311,17 @@ class Ordered_Hash_Map{
       for(int i = 0; i<index; i++){
         some_node = umap.find(some_node)->second.next;
       }
-      InsertBefore(key, value, some_node);
+      insertBefore(key, value, some_node);
     }
 
     //Removals
-    bool RemoveHead(){
+    bool removeHead(){
       if(node_count == 0){
         return false;
       }
       else if(node_count == 1){
         umap.erase(this->head);
-        this->head = Key{};
+        this->head = NULL_KEY;
       }
       else{
         Key temp = umap.find(this->head)->second.next;
@@ -311,13 +332,13 @@ class Ordered_Hash_Map{
       return true;
     }
 
-    bool RemoveTail(){
+    bool removeTail(){
       if(node_count == 0){
         return false;
       }
       else if(node_count == 1){
         umap.erase(this->tail);
-        this->tail = Key{};
+        this->tail = NULL_KEY;
       }
       else{
         Key temp = umap.find(this->tail)->second.prev;
@@ -328,13 +349,13 @@ class Ordered_Hash_Map{
       return true;
     }
 
-    bool RemoveAt(int index){
+    bool removeAt(int index){
       if(index == 0){
-        RemoveHead();
+        removeHead();
         return true;
       }
       else if(index == node_count-1){
-        RemoveTail();
+        removeTail();
         return true;
       }
       else if(index >= node_count){
@@ -355,15 +376,15 @@ class Ordered_Hash_Map{
       return true;
     }
 
-    bool Remove(const Key& key){
+    bool remove(const Key& key){
       if(umap.find(key) == umap.end()){
         return false;
       }
-      if(umap.find(key)->second.prev == Key{}){
-        RemoveHead();
+      if(umap.find(key)->second.prev == NULL_KEY){
+        removeHead();
       }
-      else if(umap.find(key)->second.next == Key{}){
-        RemoveTail();
+      else if(umap.find(key)->second.next == NULL_KEY){
+        removeTail();
       }
       else{
         Key temp_next = umap.find(key)->second.next;
@@ -377,18 +398,18 @@ class Ordered_Hash_Map{
       return true;
     }
 
-    int RemoveNodesWithValue(const Value& value){
+    int removeNodesWithValue(const Value& value){
       int removal_count = 0;
       Key nav_node = this->head;
-      while(nav_node != Key{}){
+      while(nav_node != NULL_KEY){
         Key backup = umap.find(nav_node)->second.next;
         if(umap.find(nav_node)->second.value == value){
-          if(umap.find(nav_node)->second.prev == Key{}){
-            RemoveHead();
+          if(umap.find(nav_node)->second.prev == NULL_KEY){
+            removeHead();
             nav_node = umap.find(nav_node)->second.next;
           }
-          else if(umap.find(nav_node)->second.next == Key{}){
-            RemoveTail();
+          else if(umap.find(nav_node)->second.next == NULL_KEY){
+            removeTail();
             removal_count++;
             break;
           }
@@ -408,14 +429,14 @@ class Ordered_Hash_Map{
       return removal_count;
     }
 
-    void Clear(){
-      while(this->head != Key{}){
+    void clear(){
+      while(this->head != NULL_KEY){
         Key temp = umap.find(this->head)->second.next;
         umap.erase(this->head);
         this->head = temp;
       }
-      this->head = Key{};
-      this->tail = Key{};
+      this->head = NULL_KEY;
+      this->tail = NULL_KEY;
       this->node_count = 0;
     }
 
@@ -432,11 +453,11 @@ class Ordered_Hash_Map{
     }
 
     bool operator==(Ordered_Hash_Map& other_ordered_hash_map){
-      if(this->node_count != other_ordered_hash_map.NodeCount()){
+      if(this->node_count != other_ordered_hash_map.nodeCount()){
         return false;
       }
       Key nav_node = this->head;
-      Key other_nav_node = other_ordered_hash_map.GetHead();
+      Key other_nav_node = other_ordered_hash_map.getHead();
       for(size_t i = 0; i<node_count; i++){
         if(umap.find(nav_node)->second.value != umap.find(other_nav_node)->second.value){
           return false;
