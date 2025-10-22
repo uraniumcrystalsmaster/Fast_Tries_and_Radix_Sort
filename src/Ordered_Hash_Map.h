@@ -6,23 +6,98 @@
 #define ORDERED_HASH_MAP_H
 #include <iostream>
 #include <vector>
+#include <limits>
+#include <iterator>
 #include "Funnel_Hash_Map.h"
 
 template <typename Key, typename Value>
 class Ordered_Hash_Map{
   public:
-    static constexpr Key NULL_KEY = std::numeric_limits<Key>::max();
     struct NodeProps {
       Key next = NULL_KEY;
       Key prev = NULL_KEY;
       Value value = Value{};
     };
   private:
+	static constexpr Key NULL_KEY = std::numeric_limits<Key>::max();
     size_t node_count;
     Funnel_Hash_Map<Key, NodeProps> umap;
     Key head = NULL_KEY;
     Key tail = NULL_KEY;
   public:
+	class iterator {
+    public:
+        // Iterator traits
+        using iterator_category = std::bidirectional_iterator_tag;
+        using difference_type   = std::ptrdiff_t;
+        using value_type        = Value;
+        using pointer           = Value*;
+        using reference         = Value&;
+
+    private:
+        Ordered_Hash_Map* map_ptr;
+        Key curr_key;
+        iterator(Ordered_Hash_Map* map, Key key) : map_ptr(map), curr_key(key) {}
+        friend class Ordered_Hash_Map;
+
+    public:
+        iterator() : map_ptr(nullptr), curr_key(NULL_KEY) {}
+
+        reference operator*() const {
+            return map_ptr->umap.find(curr_key)->second.value;
+        }
+
+        pointer operator->() const {
+            return &(map_ptr->umap.find(curr_key)->second.value);
+        }
+
+        const Key& key() const {
+            return curr_key;
+        }
+
+        Value& value() const {
+            return map_ptr->umap.find(curr_key)->second.value;
+        }
+
+        // Pre-increment (++it)
+        iterator& operator++() {
+            curr_key = map_ptr->umap.find(curr_key)->second.next;
+            return *this;
+        }
+
+        // Post-increment (it++)
+        iterator operator++(int) {
+            iterator old = *this; // Make a copy
+            ++(*this);           // Increment self
+            return old;          // Return the old copy
+        }
+
+        // Pre-decrement (--it)
+        iterator& operator--() {
+            if (curr_key == NULL_KEY) {
+                // If at end(), decrementing should go to the tail
+                curr_key = map_ptr->tail;
+            } else {
+                curr_key = map_ptr->umap.find(curr_key)->second.prev;
+            }
+            return *this;
+        }
+
+        // Post-decrement (it--)
+        iterator operator--(int) {
+            iterator old = *this; // Make a copy
+            --(*this);           // Decrement self
+            return old;          // Return the old copy
+        }
+
+        bool operator==(const iterator& other) const {
+            return map_ptr == other.map_ptr && curr_key == other.curr_key;
+        }
+
+        bool operator!=(const iterator& other) const {
+            return !(*this == other);
+        }
+    };
     explicit Ordered_Hash_Map(size_t N) : umap(N) {
       this->node_count = 0;
       this->head = NULL_KEY;
@@ -80,12 +155,43 @@ class Ordered_Hash_Map{
       return this->node_count;
     }
 
-    auto find(Key& key){
-      return umap.find(key);
+	iterator begin() {
+        return iterator(this, this->head);
     }
 
-    auto find(const Key& key) const{
-      return umap.find(key);
+    iterator end() {
+        // end() is one-past-the-last-element, represented by NULL_KEY
+        return iterator(this, NULL_KEY);
+    }
+
+    const_iterator begin() const {
+        return const_iterator(this, this->head);
+    }
+
+    const_iterator end() const {
+        return const_iterator(this, NULL_KEY);
+    }
+
+    const_iterator cbegin() const {
+        return const_iterator(this, this->head);
+    }
+
+    const_iterator cend() const {
+        return const_iterator(this, NULL_KEY);
+    }
+
+    iterator find(const Key& key) {
+        if (umap.contains(key)) {
+            return iterator(this, key);
+        }
+        return end();
+    }
+
+    const_iterator find(const Key& key) const {
+        if (umap.contains(key)) {
+            return const_iterator(this, key);
+        }
+        return cend();
     }
 
     bool empty(){
