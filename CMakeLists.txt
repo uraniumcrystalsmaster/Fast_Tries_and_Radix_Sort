@@ -100,7 +100,7 @@ target_link_libraries(.Test PRIVATE Catch2::Catch2WithMain) #link catch to test.
 
 # --- ADDED GPU TEST RUNNER ---
 add_executable(gpu_test_runner
-        test/GPU_Funnel_Hash_Map_test.cu
+        submodules/FunnelHashMap/test/GPU_Funnel_Hash_Map_test.cu
 )
 
 # --- FIX: ADD THIS LINE ---
