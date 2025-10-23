@@ -1,8 +1,9 @@
 #ifndef X_FAST_TRIE_H
 #define X_FAST_TRIE_H
-#include <limits>
-#include <vector>
 #include <cmath>
+#include <limits>
+#include <stdexcept>
+#include <vector>
 #include "Funnel_Hash_Map.h"
 #include "Ordered_Hash_Map.h"
 
@@ -89,7 +90,7 @@ class XFastTrie{
 					}
 				}
 				else{
-					throw runtime::error("Error: Need to fix trie's code. This shouldn't happen.");
+					throw std::runtime_error("Error: Need to fix trie's code. This shouldn't happen.");
 				}
             }
 			return true;
@@ -136,7 +137,7 @@ class XFastTrie{
 					return true;
 				}
 				else if(!has_left_child and !has_right_child){
-					upper_levels[ancestor_level].remove(ancestor_key);
+					upper_levels[ancestor_level].erase(ancestor_key);
 				}
 				else if(!has_left_child){
 					ancestor_node->second = succ;

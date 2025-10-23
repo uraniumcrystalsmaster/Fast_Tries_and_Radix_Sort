@@ -1,37 +1,37 @@
 # ninja log v5
 3	186	7821621357100353	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-mkdir	129123e1922c0f0d
 3	186	7821621357100353	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-mkdir	129123e1922c0f0d
-443	630	7826057092268179	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	c806a220d27e69e6
+5482	5738	7829503745907213	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	c806a220d27e69e6
 187	10816	7821621463363854	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-download	2799779b67425e5a
 187	10816	7821621463363854	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-download	2799779b67425e5a
-1267	1484	7826057100824014	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	7aa1be1777b3ab1e
-3	443	0	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	dbd9a2b2be04184a
-443	630	7826057092268179	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	c806a220d27e69e6
-3	443	0	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	dbd9a2b2be04184a
-630	793	7826057093911056	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	5a182bf5695884d4
-1107	1267	7826057098648933	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	cdc53b008bbb151b
-630	793	7826057093911056	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	5a182bf5695884d4
-793	949	7826057095482290	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	fdd6998a39e4b541
-793	949	7826057095482290	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	fdd6998a39e4b541
-950	1107	7826057097051302	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	af28b70ffa46b2ea
-950	1107	7826057097051302	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	af28b70ffa46b2ea
-1267	1484	7826057100824014	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	7aa1be1777b3ab1e
-1107	1267	7826057098648933	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	cdc53b008bbb151b
-1267	1484	7826057100824014	CMakeFiles/catch2-populate-complete	7aa1be1777b3ab1e
-1267	1484	7826057100824014	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/CMakeFiles/catch2-populate-complete	7aa1be1777b3ab1e
-3	483	0	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	dbd9a2b2be04184a
-3	483	0	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	dbd9a2b2be04184a
-484	652	7828051312666005	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	c806a220d27e69e6
-484	652	7828051312666005	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	c806a220d27e69e6
-652	813	7828051314289205	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	5a182bf5695884d4
-652	813	7828051314289205	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	5a182bf5695884d4
-814	982	7828051315960364	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	fdd6998a39e4b541
-814	982	7828051315960364	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	fdd6998a39e4b541
-982	1154	7828051317684585	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	af28b70ffa46b2ea
-982	1154	7828051317684585	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	af28b70ffa46b2ea
-1154	1352	7828051319650802	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	cdc53b008bbb151b
-1154	1352	7828051319650802	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	cdc53b008bbb151b
-1352	1607	7828051322206714	CMakeFiles/catch2-populate-complete	7aa1be1777b3ab1e
-1352	1607	7828051322206714	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	7aa1be1777b3ab1e
-1352	1607	7828051322206714	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/CMakeFiles/catch2-populate-complete	7aa1be1777b3ab1e
-1352	1607	7828051322206714	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	7aa1be1777b3ab1e
+6596	6877	7829503757319920	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	7aa1be1777b3ab1e
+3	5481	0	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	dbd9a2b2be04184a
+5482	5738	7829503745907213	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	c806a220d27e69e6
+3	5481	0	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	dbd9a2b2be04184a
+5739	5944	7829503747977237	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	5a182bf5695884d4
+6376	6596	7829503754483211	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	cdc53b008bbb151b
+5739	5944	7829503747977237	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	5a182bf5695884d4
+5944	6189	7829503750416114	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	fdd6998a39e4b541
+5944	6189	7829503750416114	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	fdd6998a39e4b541
+6189	6375	7829503752313129	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	af28b70ffa46b2ea
+6189	6375	7829503752313129	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	af28b70ffa46b2ea
+6596	6877	7829503757319920	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	7aa1be1777b3ab1e
+6376	6596	7829503754483211	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	cdc53b008bbb151b
+6596	6877	7829503757319920	CMakeFiles/catch2-populate-complete	7aa1be1777b3ab1e
+6596	6877	7829503757319920	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/CMakeFiles/catch2-populate-complete	7aa1be1777b3ab1e
+3	454	0	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	dbd9a2b2be04184a
+3	454	0	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	dbd9a2b2be04184a
+455	625	7829504280968703	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	c806a220d27e69e6
+455	625	7829504280968703	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	c806a220d27e69e6
+625	795	7829504282674077	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	5a182bf5695884d4
+625	795	7829504282674077	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	5a182bf5695884d4
+795	963	7829504284360965	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	fdd6998a39e4b541
+795	963	7829504284360965	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	fdd6998a39e4b541
+964	1135	7829504286064631	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	af28b70ffa46b2ea
+964	1135	7829504286064631	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	af28b70ffa46b2ea
+1135	1305	7829504287775039	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	cdc53b008bbb151b
+1135	1305	7829504287775039	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	cdc53b008bbb151b
+1305	1541	7829504290136638	CMakeFiles/catch2-populate-complete	7aa1be1777b3ab1e
+1305	1541	7829504290136638	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	7aa1be1777b3ab1e
+1305	1541	7829504290136638	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/CMakeFiles/catch2-populate-complete	7aa1be1777b3ab1e
+1305	1541	7829504290136638	C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	7aa1be1777b3ab1e
