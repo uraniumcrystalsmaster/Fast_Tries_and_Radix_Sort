@@ -1,1 +1,23 @@
+submodules/
+
+# Ignore build folders
+cmake-build-debug/
+cmake-build-release/
 build/
+out/
+
+# Ignore CLion and CMake internal files
+.idea/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+*.a
+*.o
+*.obj
+*.exe
+*.dll
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db

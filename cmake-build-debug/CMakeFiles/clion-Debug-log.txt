@@ -1,4 +1,18 @@
-"C:\Program Files\JetBrains\CLion 2024.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2024.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S "C:\Users\urani\Documents\C++ Scripts UF\DSA\X-fast trie and radix sort project\fast-tries-and-radix-sort" -B "C:\Users\urani\Documents\C++ Scripts UF\DSA\X-fast trie and radix sort project\fast-tries-and-radix-sort\cmake-build-debug"
--- Configuring done (4.8s)
+"C:\Program Files\JetBrains\CLion 2024.3.1.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\41358\OneDrive\Documents\UF\2COP3530\Project2\Fast_Tries_and_Radix_Sort -B C:\Users\41358\OneDrive\Documents\UF\2COP3530\Project2\Fast_Tries_and_Radix_Sort\cmake-build-debug
+-- The C compiler identification is GNU 13.1.0
+-- The CXX compiler identification is GNU 13.1.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/JetBrains/CLion 2024.3.1.1/bin/mingw/bin/gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/JetBrains/CLion 2024.3.1.1/bin/mingw/bin/g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test HAVE_FLAG__ffile_prefix_map_C__Users_41358_OneDrive_Documents_UF_2COP3530_Project2_Fast_Tries_and_Radix_Sort_cmake_build_debug__deps_catch2_src__
+-- Performing Test HAVE_FLAG__ffile_prefix_map_C__Users_41358_OneDrive_Documents_UF_2COP3530_Project2_Fast_Tries_and_Radix_Sort_cmake_build_debug__deps_catch2_src__ - Success
+-- Configuring done (9.6s)
 -- Generating done (0.1s)
--- Build files have been written to: C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug
+-- Build files have been written to: C:/Users/41358/OneDrive/Documents/UF/2COP3530/Project2/Fast_Tries_and_Radix_Sort/cmake-build-debug

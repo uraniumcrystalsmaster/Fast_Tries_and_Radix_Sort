@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild
+# Install script for directory: C:/Users/41358/OneDrive/Documents/UF/2COP3530/Project2/Fast_Tries_and_Radix_Sort/cmake-build-debug/_deps/catch2-subbuild
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,12 +33,20 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
-  set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
+  if(CMAKE_INSTALL_COMPONENT MATCHES "^[a-zA-Z0-9_.+-]+$")
+    set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
+  else()
+    string(MD5 CMAKE_INST_COMP_HASH "${CMAKE_INSTALL_COMPONENT}")
+    set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INST_COMP_HASH}.txt")
+    unset(CMAKE_INST_COMP_HASH)
+  endif()
 else()
   set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
-string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-subbuild/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/41358/OneDrive/Documents/UF/2COP3530/Project2/Fast_Tries_and_Radix_Sort/cmake-build-debug/_deps/catch2-subbuild/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
+endif()
