@@ -1,6 +1,5 @@
 C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/CMakeFiles/Main.dir
-C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/CMakeFiles/.Test.dir
-C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/CMakeFiles/gpu_test_runner.dir
+C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/CMakeFiles/Tests.dir
 C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-build/CMakeFiles/edit_cache.dir

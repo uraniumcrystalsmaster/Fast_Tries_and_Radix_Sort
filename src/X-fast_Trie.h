@@ -4,21 +4,21 @@
 #include <limits>
 #include <stdexcept>
 #include <vector>
-#include "Funnel_Hash_Map.h"
+#include "submodules/FunnelHashMap/src/Funnel_Hash_Map.h"
 #include "Ordered_Hash_Map.h"
 
 template<typename Value>
 class XFastTrie{
 	constexpr static size_t NULL_KEY = std::numeric_limits<size_t>::max();
 	using iter_upper_levels = typename Funnel_Hash_Map<size_t, size_t>::iterator;
-	using const_iter_upper_levels = typename Funnel_Hash_Map<size_t, size_t>::const_iterator;
+	//using const_iter_upper_levels = typename Funnel_Hash_Map<size_t, size_t>::const_iterator;
 	using iter_lowest_level = typename Ordered_Hash_Map<size_t, Value>::iterator;
-	using const_iter_lowest_level = typename Ordered_Hash_Map<size_t, Value>::const_iterator;
+	//using const_iter_lowest_level = typename Ordered_Hash_Map<size_t, Value>::const_iterator;
     Ordered_Hash_Map<size_t,Value> lowest_level;
     std::vector<Funnel_Hash_Map<size_t,size_t>> upper_levels;
     size_t bit_count;
     public:
-        explicit XFastTrie(size_t N){
+		explicit XFastTrie(size_t N) : lowest_level(N) {
             this->bit_count = std::numeric_limits<size_t>::digits
             + (std::is_signed<size_t>::value ? 1 : 0); //add one for signed values
             upper_levels.reserve(bit_count-1);
@@ -153,9 +153,19 @@ class XFastTrie{
 			return lowest_level.find(key);
 		}
 
+	/*
 		const_iter_lowest_level find(const size_t& key) const{
 			return lowest_level.find(key);
 		}
+*/
+
+		bool contains(const size_t& key){
+        	return lowest_level.contains(key);
+        }
+
+		bool contains(const size_t& key) const{
+        	return lowest_level.contains(key);
+        }
 
 		iter_lowest_level predecessor(const size_t& key) {
 			iter_lowest_level possible_node = lowest_level.find(key);
@@ -178,6 +188,7 @@ class XFastTrie{
 			return lowest_level.find(possible_node->second.prev);
 		}
 
+	/*
 		const_iter_lowest_level predecessor(const size_t& key) const{
 			const_iter_lowest_level possible_node = lowest_level.find(key);
 			if(possible_node == lowest_level.end()){
@@ -199,6 +210,8 @@ class XFastTrie{
 			return lowest_level.find(possible_node->second.prev);
 		}
 
+*/
+
 		iter_lowest_level successor(const size_t& key){
 			iter_lowest_level possible_node = lowest_level.find(key);
 			if(possible_node == lowest_level.end()){
@@ -219,7 +232,7 @@ class XFastTrie{
 			}
 			return lowest_level.find(possible_node->second.next);
         }
-
+	/*
 		const_iter_lowest_level successor(const size_t& key) const{
 			const_iter_lowest_level possible_node = lowest_level.find(key);
 			if(possible_node == lowest_level.end()){
@@ -240,7 +253,7 @@ class XFastTrie{
 			}
 			return lowest_level.find(possible_node->second.next);
 		}
-
+*/
         size_t findLongestCommonPrefixLevelIndex(const size_t& key){
             size_t target_prefix_level_i = 0;
             size_t low = 0;
@@ -260,6 +273,7 @@ class XFastTrie{
             return target_prefix_level_i;
         }
 
+	/*
 		size_t findLongestCommonPrefixLevelIndex(const size_t& key) const{
             size_t target_prefix_level_i = 0;
             size_t low = 0;
@@ -279,20 +293,26 @@ class XFastTrie{
             return target_prefix_level_i;
         }
 
+        */
+
 		iter_lowest_level begin() {
 			return lowest_level.begin();
 		}
 
+	/*
 		const_iter_lowest_level cbegin() const {
 			return lowest_level.cbegin();
 		}
+		*/
 
 		iter_lowest_level end() {
 			return lowest_level.end();
 		}
 
+	/*
 		const_iter_lowest_level cend() const {
 			return lowest_level.cend();
 		}
+		*/
 };
 #endif //X_FAST_TRIE_H

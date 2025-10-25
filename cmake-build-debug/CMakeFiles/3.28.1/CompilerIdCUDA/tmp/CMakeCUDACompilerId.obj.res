@@ -1,1 +1,0 @@
--D__CUDA_ARCH__=520 -D__CUDA_ARCH_LIST__=520 -nologo -c -TP  -DCUDA_DOUBLE_MATH_FUNCTIONS -EHsc /W3 "-IC:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.8/bin/../include"   "C:\Users\urani\Documents\C++ Scripts UF\DSA\X-fast trie and radix sort project\fast-tries-and-radix-sort\cmake-build-debug\CMakeFiles\3.28.1\CompilerIdCUDA\tmp\CMakeCUDACompilerId.cudafe1.cpp" 

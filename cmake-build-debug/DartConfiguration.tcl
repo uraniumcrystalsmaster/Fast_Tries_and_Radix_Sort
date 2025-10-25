@@ -63,8 +63,8 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/bin/g++.exe
-CompilerVersion: 13.1.0
+Compiler: C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.40.33721/bin/Hostx64/x64/cl.exe
+CompilerVersion: 19.40.33721.2
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 
@@ -76,12 +76,12 @@ CudaSanitizerCommand:
 CudaSanitizerCommandOptions: 
 MemoryCheckType: 
 MemoryCheckSanitizerOptions: 
-MemoryCheckCommand: MEMORYCHECK_COMMAND-NOTFOUND
+MemoryCheckCommand: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.8/bin/cuda-memcheck.exe
 MemoryCheckCommandOptions: 
 MemoryCheckSuppressionFile: 
 
 # Coverage
-CoverageCommand: C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/bin/gcov.exe
+CoverageCommand: C:/MinGW2/bin/gcov.exe
 CoverageExtraFlags: -l
 
 # Testing options

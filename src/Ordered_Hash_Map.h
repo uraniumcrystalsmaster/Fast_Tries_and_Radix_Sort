@@ -8,7 +8,7 @@
 #include <vector>
 #include <limits>
 #include <iterator>
-#include "Funnel_Hash_Map.h"
+#include "submodules/FunnelHashMap/src/Funnel_Hash_Map.h"
 
 template <typename Key, typename Value>
 class Ordered_Hash_Map{
@@ -163,6 +163,7 @@ class Ordered_Hash_Map{
         // end() is one-past-the-last-element, represented by NULL_KEY
         return iterator(this, NULL_KEY);
     }
+  /*
 
     const_iterator begin() const {
         return const_iterator(this, this->head);
@@ -179,6 +180,7 @@ class Ordered_Hash_Map{
     const_iterator cend() const {
         return const_iterator(this, NULL_KEY);
     }
+    */
 
     iterator find(const Key& key) {
         if (umap.contains(key)) {
@@ -187,6 +189,8 @@ class Ordered_Hash_Map{
         return end();
     }
 
+  /*
+
     const_iterator find(const Key& key) const {
         if (umap.contains(key)) {
             return const_iterator(this, key);
@@ -194,8 +198,13 @@ class Ordered_Hash_Map{
         return cend();
     }
 
+    */
+
     bool empty(){
-        return nodeCount == 0;
+      if(node_count == 0) {
+        return true;
+      }
+      return false;
     }
 
     bool contains(const Key& key) {

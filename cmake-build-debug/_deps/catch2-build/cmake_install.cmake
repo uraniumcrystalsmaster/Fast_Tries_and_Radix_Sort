@@ -32,6 +32,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "C:/Program Files/JetBrains/CLion 2024.1/bin/mingw/bin/objdump.exe")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("C:/Users/urani/Documents/C++ Scripts UF/DSA/X-fast trie and radix sort project/fast-tries-and-radix-sort/cmake-build-debug/_deps/catch2-build/src/cmake_install.cmake")
